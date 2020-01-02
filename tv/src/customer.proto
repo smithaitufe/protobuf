@@ -1,0 +1,20 @@
+syntax="proto3";
+
+service CustomerService {
+    rpc GetCustomers (GetCustomersRequest) returns (GetCustomersResponse);
+}
+
+message Customer {
+    int64 id = 1;
+    string firstName = 2;
+    string lastName = 3;
+    string email = 4;
+    string phone = 5;
+}
+
+
+message GetCustomersRequest {}
+
+message GetCustomersResponse {
+    repeated Customer customers = 1;
+}
