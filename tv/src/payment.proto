@@ -1,0 +1,42 @@
+syntax = "proto3";
+
+import "error.proto";
+
+service PaymentService {
+    rpc GetPayments(GetPaymentsRequest) returns (GetPaymentsResponse) {}
+    rpc AddPayments(AddPaymentRequest) returns (AddPaymentResponse) {}
+    
+}
+
+message Payment {
+    int64 id = 1;
+    string transactionRef = 2;
+    int64 customerID = 3;
+    float amount = 4;
+    string description = 5;
+    string paidAt = 6;
+    bool isSuccessful = 7;
+}
+
+message GetPaymentsRequest {
+    optional int64 customerID = 1;
+    optional string paidAt = 2;
+}
+
+message GetPaymentsResponse {
+    repeated Payment payments = 1;
+}
+
+message AddPaymentRequest {
+    string transactionRef = 1;
+    int64 customerID = 2;
+    float amount = 3;
+    string description = 4;
+    string paidAt = 5;
+    bool isSuccessful = 6;
+}
+
+message AddPaymentResponse {
+    Payment payment = 1;
+    Error error = 2;
+}

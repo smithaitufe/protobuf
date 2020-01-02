@@ -1,0 +1,9 @@
+syntax = "proto3";
+
+
+message Subscription {
+    int64 id = 1;
+    string paymentID = 2;    
+    string startsAt = 3;
+    string expiresAt = 4;    
+}
