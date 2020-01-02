@@ -4,7 +4,7 @@ import "error.proto";
 
 service PaymentService {
     rpc GetPayments(GetPaymentsRequest) returns (GetPaymentsResponse) {}
-    rpc AddPayments(AddPaymentRequest) returns (AddPaymentResponse) {}
+    rpc AddPayment(AddPaymentRequest) returns (AddPaymentResponse) {}
     
 }
 
