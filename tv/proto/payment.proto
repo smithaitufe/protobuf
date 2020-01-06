@@ -1,12 +1,8 @@
 syntax = "proto3";
 
+import "google/protobuf/timestamp.proto";
 import "error.proto";
 
-service PaymentService {
-    rpc GetPayments(GetPaymentsRequest) returns (GetPaymentsResponse) {}
-    rpc AddPayment(AddPaymentRequest) returns (AddPaymentResponse) {}
-    
-}
 
 message Payment {
     int64 id = 1;
@@ -14,29 +10,29 @@ message Payment {
     int64 customerID = 3;
     float amount = 4;
     string description = 5;
-    string paidAt = 6;
+    google.protobuf.Timestamp paidAt = 6;
     bool isSuccessful = 7;
 }
 
 message GetPaymentsRequest {
     optional int64 customerID = 1;
-    optional string paidAt = 2;
+    optional google.protobuf.Timestamp paidAt = 2;
 }
 
 message GetPaymentsResponse {
     repeated Payment payments = 1;
 }
 
-message AddPaymentRequest {
+message CreatePaymentRequest {
     string transactionRef = 1;
     int64 customerID = 2;
     float amount = 3;
     string description = 4;
-    string paidAt = 5;
+    google.protobuf.Timestamp paidAt = 5;
     bool isSuccessful = 6;
 }
 
-message AddPaymentResponse {
+message CreatePaymentResponse {
     Payment payment = 1;
     Error error = 2;
 }

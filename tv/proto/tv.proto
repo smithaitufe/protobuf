@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+
+import "customer.proto";
+import "payment.proto";
+import "subscription.proto";
+
+
+service TV {
+    rpc GetCustomers (GetCustomersRequest) returns (GetCustomersResponse) {}
+    rpc GetCustomer (GetCustomerRequest) returns (GetCustomerResponse) {}
+    rpc CreateCustomer(CreateCustomerRequest) returns (CreateCustomerResponse) {}
+    rpc GetPayments(GetPaymentsRequest) returns (GetPaymentsResponse) {}
+    rpc CreatePayment(CreatePaymentRequest) returns (CreatePaymentResponse) {}
+    rpc GetSubscriptions(GetSubscriptionsRequest) returns (GetSubscriptionsResponse) {}
+    rpc CreateSubscription(CreateSubscriptionRequest) returns (CreateSubscriptionResponse) {}
+}
